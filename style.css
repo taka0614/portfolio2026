@@ -42,7 +42,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 p.swipe {
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     color: #fff;
     font-size: 1rem;
 }
