@@ -40,6 +40,17 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: #e6b422;
 }
 
+p.swipe {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 1rem;
+}
+
+p.swipe.bk {
+    color: #333;
+}
+
 /* top */
 .top {
     position: relative;
