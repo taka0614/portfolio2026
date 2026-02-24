@@ -42,7 +42,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 p.swipe {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     color: #fff;
     font-size: 1rem;
 }
@@ -609,5 +609,6 @@ h2.contents_title.active {
     transform: skewX(15deg) translateY(0);
     opacity: 1;
   }
+
 
 }
