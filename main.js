@@ -10,7 +10,8 @@ window.addEventListener('scroll', () => {
   }, 300);
 });
 
-// ▼ ランダム文字アニメーション
+
+
 function applyRandomSpanToElement(el) {
   const originalText = el.textContent;
   const chars = [...originalText];
@@ -36,9 +37,26 @@ function updateAll() {
 }
 
 updateAll();
-setInterval(updateAll, 1000);
 
-// ▼ IntersectionObserver
+setInterval(updateAll, 2000);
+
+var cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', function (e) {
+  cursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+});
+
+
+var link = document.querySelectorAll('a');
+for (var i = 0; i < link.length; i++) {
+  link[i].addEventListener('mouseover', function (e) {
+    cursor.classList.add('cursor--hover');
+  });
+  link[i].addEventListener('mouseout', function (e) {
+    cursor.classList.remove('cursor--hover');
+  });
+}
+
 const targets = document.querySelectorAll('.target');
 
 const observer = new IntersectionObserver((entries) => {
@@ -54,7 +72,34 @@ const observer = new IntersectionObserver((entries) => {
 
 targets.forEach(target => observer.observe(target));
 
-// ▼ hover クラス削除
-$(".hover").mouseleave(function () {
-  $(this).removeClass("hover");
+let isScrolling = false;
+
+$(function () {
+  $(window).scroll(function () {
+    var scroll = $(this).scrollTop();
+    $('#count').text(scroll);
+
+    if (isScrolling) return;
+
+    if (scroll >= 6666) {
+      isScrolling = true;
+
+      $('body').addClass('scrolling-to-top');
+
+      $('html, body').animate({ scrollTop: 0 }, 6666, function () {
+        isScrolling = false;
+        $('body').removeClass('scrolling-to-top');
+      });
+    }
+  });
 });
+
+
+
+$(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+
+
